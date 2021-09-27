@@ -1,5 +1,9 @@
 #!/bin/bash
-# Gestor principal
+#Utilidad para gestionar diferentes configuraciones en el servidor.
+#Ruta: /home
+#Autores: Mateo Conde, Franco Correa, Darwin Sosa y Juan Salaberry.
+#Licencia: GNU GPLv3
+
 clear
 
 echo "Antes de comenzar el gestor, se autenticara con el usuario admin"
