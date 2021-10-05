@@ -958,11 +958,19 @@ do
 			case $optionsub in
 				1)
 					clear
-					
+					echo "-------"
+					echo "Ver RAM"
+					echo "-------"
+					free
+					read -p "Presione enter para continuar..."
 				;;
 				2)
 					clear
-					
+					echo "-------"
+					echo "Ver CPU"
+					echo "-------"
+					echo "Presione CTRL+C para volver al menu"
+					top
 				;;
 				3)
 					clear
