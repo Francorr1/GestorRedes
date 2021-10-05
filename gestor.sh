@@ -447,7 +447,11 @@ do
 			case $optionsub in
 				1)  # Ver tarjetas en PCI
 					clear
-					
+					echo "---------------"
+					echo "Tarjetas en PCI"
+					echo "---------------"
+					lspci
+					read -p "Presione enter para continuar..."
 				;;
 				2)  # Ver datos
 					clear
@@ -480,11 +484,23 @@ do
 				;;
 				4)  # Resolver nombre de dominio
 					clear
-					
+					echo "--------------------------"
+					echo "Resolver nombre de dominio"
+					echo "--------------------------"
+					echo "ngrese el nombre de dominio para resolver"
+					read dominio
+					clear
+					nslookup $dominio
+					read -p "Presione enter para continuar..."
+					clear
 				;;
 				5)  # Ruteo
 					clear
-					
+					echo "-----"
+					echo "Ruteo"
+					echo "-----"
+					route
+					read -p "Presione enter para continuar..."
 				;;
 				6)  # Lista host lan
 					clear
