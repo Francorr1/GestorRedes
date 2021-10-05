@@ -969,20 +969,33 @@ do
 					echo "-------"
 					echo "Ver CPU"
 					echo "-------"
-					echo "Presione CTRL+C para volver al menu"
-					top
+					mpstat
+					read -p "Presione enter para continuar..."
 				;;
 				3)
 					clear
-					
+					echo "------------"
+					echo "Ver procesos"
+					echo "------------"
+					ps -a
+					echo -p "Presione enter para continuar..."
 				;;
 				4)
 					clear
-					
+					echo "-----------------"
+					echo "Eliminar procesos"
+					echo "-----------------"
+					echo "Escriba el nombre del proceso que desea eliminar"
+					read proceso
+					sudo killall $proceso
 				;;
 				5)
 					clear
-					
+					echo "------------"
+					echo "Ver particiones"
+					echo "------------"
+					lsblk
+					read -p "Presione enter para continuar"
 				;;
 				0)
 					break
