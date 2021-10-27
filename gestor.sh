@@ -455,7 +455,11 @@ do
 				;;
 				2)  # Ver datos
 					clear
-					
+					echo "---------"
+					echo "Ver datos"
+					echo "---------"
+					ifconfig
+					read -p "Presione enter para continuar..."
 				;;
 				3)  # Verificar conectividad
 					clear
@@ -504,15 +508,31 @@ do
 				;;
 				6)  # Lista host lan
 					clear
-					
+					echo "---------------"
+					echo "Listar host LAN"
+					echo "---------------"
+					arp -a
+					read -p "Presione enter para continuar..."
 				;;
 				7)  # Sniffer
 					clear
-					
+					echo "-------"
+					echo "Sniffer"
+					echo "-------"
+					echo "Se comenzará el Sniffer, para cerrarlo presione ctrl+C"
+					read -p "Presione enter para comenzar..."
+					sudo tcpdump
+					echo "Se cerró el Sniffer"
+					read -p "Presione enter para continuar..."
 				;;
 				8)  # Configurar red
 					clear
-					
+					echo "--------------"
+					echo "Configurar red"
+					echo "--------------"
+					echo "Se abrirá el editor Nano para configurar Netplan"
+					read -P "Presione enter para comenzar..."
+					sudo nano /etc/netplan/config.yaml
 				;;
 				9)  # Resolver direccion IP
 					clear
