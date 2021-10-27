@@ -638,25 +638,22 @@ do
 			echo "Seleccione una opcion"
 			echo "1) Programar actualizaciones automaticas"
 			echo "2) Limpiar navegador"
-			echo "3) Configurar Firewall"
-			echo "4) Configurar UFW"
-			echo "5) Cambiar permisos"
+			echo "3) Configurar UFW"
 			echo "0) Volver al menu anterior"
 			read optionsub
 			case $optionsub in
 				1)  # Programar actualizaciones automaticas
 					clear
-					
+					sudo cp ./K01Actualizaciones /etc/rc6.d/
 				;;
 				2)  # Limpiar navegador
 					clear
+					sudo rm ~/.mozilla/firefox/*.default/*.sqlite
+					sudo rm ~/.mozilla/firefox/*.default/sessionstore.js
+					sudo rm ~/.cache/mozilla/firefox/*.default/*
 					
 				;;
-				3)  # Configurar Firewall
-					clear
-					
-				;;
-				4)  # Configurar UFW
+				3)  # Configurar UFW
 					clear
 					while true 
 					do 
@@ -737,10 +734,6 @@ do
 						;;
 					esac
 					done
-				;;
-				5)  # Cambiar permisos
-					clear
-					
 				;;
 				0)  # Volver
 					break
@@ -927,25 +920,52 @@ do
 			echo "0) Volver al menu anterior"
 			read optionsub
 			case $optionsub in
-				1)
+				1)  # Instalar servicio
 					clear
-					
+					echo "-----------------"
+					echo "Instalar servicio"
+					echo "-----------------"
+					echo "Ingrese el nombre del paquete del servicio que desea instalar"
+					read paquete
+					clear
+					sudo apt install $paquete
+					read -p "Presione enter para continuar..."
 				;;
-				2)
+				2)  # Editar servicio
 					clear
-					
+					echo "---------------"
+					echo "Editar servicio"
+					echo "---------------"
+					echo "Ingrese el archivo del servicio que desea editar (incluir ruta)"
+					read rutaservicio
+					sudo nano $rutaservicio
 				;;
-				3)
+				3)  # Reiniciar
 					clear
-					
+					echo "-------------------"
+					echo "Reiniciar servicios"
+					echo "-------------------"
+					echo "Introduzca el nombre del servicio que desee reiniciar"
+					read servicio
+					sudo systemctl restart $servicio
 				;;
-				4)
+				4)  # Detener
 					clear
-					
+					echo "-----------------"
+					echo "Detener servicios"
+					echo "-----------------"
+					echo "Introduzca el nombre del servicio que desee detener"
+					read servicio
+					sudo systemctl stop $servicio
 				;;
-				5)
+				5)  # Arrancar
 					clear
-					
+					echo "------------------"
+					echo "Arrancar servicios"
+					echo "------------------"
+					echo "Introduzca el nombre del servicio que desee arrancar"
+					read servicio
+					sudo systemctl start $servicio
 				;;
 				0)
 					break
@@ -976,7 +996,7 @@ do
 			echo "0) Volver al menu anterior"
 			read optionsub
 			case $optionsub in
-				1)
+				1)  # Ver RAM
 					clear
 					echo "-------"
 					echo "Ver RAM"
@@ -984,7 +1004,7 @@ do
 					free
 					read -p "Presione enter para continuar..."
 				;;
-				2)
+				2)  # Ver CPU
 					clear
 					echo "-------"
 					echo "Ver CPU"
@@ -992,7 +1012,7 @@ do
 					mpstat
 					read -p "Presione enter para continuar..."
 				;;
-				3)
+				3)  # Ver procesos
 					clear
 					echo "------------"
 					echo "Ver procesos"
@@ -1000,7 +1020,7 @@ do
 					ps -a
 					echo -p "Presione enter para continuar..."
 				;;
-				4)
+				4)  # Eliminar procesos
 					clear
 					echo "-----------------"
 					echo "Eliminar procesos"
@@ -1009,11 +1029,11 @@ do
 					read proceso
 					sudo killall $proceso
 				;;
-				5)
+				5)  # Ver particiones
 					clear
-					echo "------------"
+					echo "---------------"
 					echo "Ver particiones"
-					echo "------------"
+					echo "---------------"
 					lsblk
 					read -p "Presione enter para continuar"
 				;;

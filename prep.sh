@@ -11,3 +11,4 @@ clear
 sudo apt update
 sudo apt -y install neofetch
 sudo apt -y install sysstat
+sudo apt -y install ifconfig
