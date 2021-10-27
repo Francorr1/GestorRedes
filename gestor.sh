@@ -15,22 +15,26 @@ clear
 while true
 do
 	clear
-	echo "------"
-	echo "Gestor"
-	echo "------"
-	echo "Seleccione una gestion"
-	echo "1) Sistema y SA"
-	echo "2) Red"
-	echo "3) Seguridad"
-	echo "4) Usuarios"
-	echo "5) Servicios"
-	echo "6) Procesos y memoria"
-	echo "7) Cerrar la terminal"
-	echo "0) Salir"
-	
-	read option
-	
-	case $option in
+	gestor=$(zenity --entry \
+		--title="Gestor" \
+		--width=350 \
+		--ok-label="Aceptar" \
+		--cancel-label="Cancelar" \
+		--text="Seleccione una gestion
+1) Sistema y SA
+2) Red
+3) Seguridad
+4) Usuarios
+5) Servicios
+6) Procesos y memoria
+7) Cerrar la terminal
+0) Salir")
+	ans=$?
+	if [ $ans -eq 1 ]
+	then
+		exit
+	else
+	case ${gestor} in
 		1)  # Sistema y SA
 			while true
 			do
@@ -1075,5 +1079,5 @@ do
 			read -p "Presione enter"
 		
 	esac
-	
+	fi
 done
